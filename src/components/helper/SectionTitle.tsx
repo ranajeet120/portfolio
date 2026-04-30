@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-function SectionTitle({ label }) {
+function SectionTitle({ label }: { label: string }) {
   return (
     <Typography
       variant="h2"
