@@ -217,7 +217,31 @@ export const DETAILS: {
       p_type_of_work: "Full Stack E-commerce Application",
       p_ratings: { value: 4.6, total: 5 },
       p_clientSatisfaction: 95,
-      p_teamMember: 3,
+      p_teamMember: 12,
+    },
+    {
+      p_name: "YIMBY",
+      p_description:
+        "Civil commerce platform for property and equipment trading with location insights, area calculations, and availability tracking.",
+      p_technologies: ["React JS", "React Native", "Node JS", "MySQL"],
+      p_client: "Confidential",
+      p_organization: "Softsuave Technologies Pvt. Lmt.",
+      p_type_of_work: "Commercial Civil Project",
+      p_ratings: { value: 4.2, total: 5 },
+      p_clientSatisfaction: 95,
+      p_teamMember: 5,
+    },
+    {
+      p_name: "Dynafios",
+      p_description:
+        "Laravel-based web app for financial and business operations with data management, reporting, and secure workflow automation.",
+      p_technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
+      p_client: "Confidential",
+      p_organization: "Softsuave Technologies Pvt. Lmt.",
+      p_type_of_work: "Web Application",
+      p_ratings: { value: 4.3, total: 5 },
+      p_clientSatisfaction: 96,
+      p_teamMember: 4,
     },
   ],
   experience: [
@@ -278,7 +302,7 @@ export const DETAILS: {
   ],
   certificate: [
     {
-      c_name: "Cerficate in Information Technology Application",
+      c_name: "Certificate in Information Technology Application",
       c_id: "YS-BHA-19-190011/2024",
       c_topic:
         "Fundamentals of computer operations, basic software usage, and core IT learning concepts.",
@@ -294,7 +318,7 @@ export const DETAILS: {
       c_organization: "Ministry of Labour & Employment",
     },
     {
-      c_name: "Cerficate of Excellence",
+      c_name: "Certificate of Excellence",
       c_id: "NO-ID",
       c_topic:
         "Explained internal working of calculations during a college-level technical presentation.",
@@ -302,7 +326,7 @@ export const DETAILS: {
       c_organization: "Gitaram Institute of Management",
     },
     {
-      c_name: "Cerficate of Excellence",
+      c_name: "Certificate of Excellence",
       c_id: "NO-ID",
       c_topic:
         "Participated in debate on the impact of education on society with analytical insights.",
@@ -318,7 +342,7 @@ export const DETAILS: {
       c_organization: "Ardent Computech Pvt. Ltd.",
     },
     {
-      c_name: "Cerficate of Special Appreciation",
+      c_name: "Certificate of Special Appreciation",
       c_id: "NO-ID",
       c_topic:
         "Recognized for contribution and participation in organizing a blood donation camp.",
@@ -326,7 +350,7 @@ export const DETAILS: {
       c_organization: "Gitaram Institute of Management",
     },
     {
-      c_name: "Cerficate of Deploma in Communicative English",
+      c_name: "Certificate of Deploma in Communicative English",
       c_id: "1/A/0113/01",
       c_topic:
         "Improved spoken English, confidence, fluency, and professional communication skills.",
@@ -334,7 +358,7 @@ export const DETAILS: {
       c_organization: "Dey's Education",
     },
     {
-      c_name: "Cerficate of Debate & Extempore Competition",
+      c_name: "Certificate of Debate & Extempore Competition",
       c_id: "1/A/009",
       c_topic:
         "Participated in debate and extempore competitions showcasing public speaking skills.",

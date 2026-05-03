@@ -1,19 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+// /* eslint-disable react-hooks/exhaustive-deps */
+// import { useState, useEffect } from "react";
 import { Typography, Box, IconButton } from "@mui/material";
 import { DETAILS } from "../../Typography";
 
 function About({ primary }: { primary: string; secondary: string }) {
-  const [typed, setTyped] = useState("");
-  const full = DETAILS.about.typed;
-  useEffect(() => {
-    let i = 0;
-    const t = setInterval(() => {
-      setTyped(full.slice(0, ++i));
-      if (i >= full.length) clearInterval(t);
-    }, 75);
-    return () => clearInterval(t);
-  }, []);
+  // const [typed, setTyped] = useState("");
+  // const full = DETAILS.about.typed;
+  // useEffect(() => {
+  //   let i = 0;
+  //   const t = setInterval(() => {
+  //     setTyped(full.slice(0, ++i));
+  //     if (i >= full.length) clearInterval(t);
+  //   }, 75);
+  //   return () => clearInterval(t);
+  // }, []);
 
   return (
     <Box
@@ -74,7 +74,7 @@ function About({ primary }: { primary: string; secondary: string }) {
           {DETAILS.about.name}
         </Typography>
 
-        <Typography
+        {/* <Typography
           sx={{
             fontSize: { xs: "1.3rem", md: "1.9rem" },
             color: "text.secondary",
@@ -96,7 +96,7 @@ function About({ primary }: { primary: string; secondary: string }) {
               animation: "blnk 1s step-end infinite",
             }}
           />
-        </Typography>
+        </Typography> */}
         <Typography
           sx={{
             color: "text.secondary",
