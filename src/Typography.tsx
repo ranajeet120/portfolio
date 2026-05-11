@@ -23,7 +23,7 @@ export type about_type = {
   name: string;
   typed: string;
   desc: string;
-  highlight: { value: string; lebel: string }[];
+  highlight: { value: string; label: string }[];
   contacts: {
     icon: React.ElementType<SvgIconProps>;
     onClick: () => void;
@@ -33,7 +33,12 @@ export type about_type = {
   contact_desc: string;
 };
 
-export type skills_type = { name: string; level: number; cat: string };
+export type skills_list_type = { name: string; level: number; cat: string };
+
+export type skills_type = {
+  label: string;
+  list: skills_list_type[];
+};
 
 export type projects_type = {
   p_name: string;
@@ -45,6 +50,7 @@ export type projects_type = {
   p_ratings: { value: number; total: number };
   p_clientSatisfaction: number;
   p_teamMember: number;
+  p_year: { start: number; end: number };
 };
 
 export type experience_type = {
@@ -72,7 +78,8 @@ export type certificate_type = {
 
 export const DETAILS: {
   about: about_type;
-  skills: skills_type[];
+  // skills: skills_type[];
+  skills: skills_list_type[];
   projects: projects_type[];
   experience: experience_type[];
   qualification: qualification_type[];
@@ -85,9 +92,11 @@ export const DETAILS: {
     typed: "Frontend Developer.",
     desc: "Crafting performant, pixel-perfect web interfaces with obsessive attention to developer experience and user delight — 5+ years turning complexity into elegance.",
     highlight: [
-      { value: "5+", lebel: "Years exp." },
-      { value: "30+", lebel: "Projects" },
-      { value: "12", lebel: "OSS repos" },
+      { value: "5+", label: "Experience" },
+      { value: "24+", label: "Projects" },
+      { value: "7+", label: "Clients" },
+      { value: "12", label: "Leadership" },
+      { value: "4", label: "Management" },
     ],
     contacts: [
       {
@@ -132,31 +141,166 @@ export const DETAILS: {
     contact_desc:
       "Open to freelance projects, full-time roles, and interesting collaborations. Let's connect.",
   },
+  // skills: [
+  //   {
+  //     label: "Frontend",
+  //     list: [
+  //       { name: "React Js", level: 95, cat: "Framework" },
+  //       { name: "React Native", level: 95, cat: "Framework" },
+  //       { name: "Next Js", level: 75, cat: "Framework" },
+  //       { name: "HTML5", level: 95, cat: "Markup" },
+  //       { name: "CSS3", level: 95, cat: "Styling" },
+  //       { name: "JavaScript (ES6+)", level: 92, cat: "Language" },
+  //       { name: "TypeScript", level: 85, cat: "Language" },
+  //     ],
+  //   },
+  //   {
+  //     label: "Backend",
+  //     list: [
+  //       { name: "Node Js", level: 82, cat: "Runtime" },
+  //       { name: "Express Js", level: 80, cat: "Framework" },
+  //       { name: "PHP", level: 80, cat: "Framework" },
+  //       { name: "Python", level: 80, cat: "Framework" },
+  //       { name: "Java", level: 80, cat: "Framework" },
+  //     ],
+  //   },
+  //   {
+  //     label: "Database",
+  //     list: [
+  //       { name: "MySQL", level: 82, cat: "Relational Database" },
+  //       { name: "SQLite", level: 80, cat: "Local Database" },
+  //       { name: "MongoDB", level: 78, cat: "NoSQL Database" },
+  //     ],
+  //   },
+  //   {
+  //     label: "Deployment",
+  //     list: [
+  //       { name: "App Store", level: 85, cat: "iOS" },
+  //       { name: "Play Store", level: 90, cat: "Android" },
+  //       { name: "Web Hosting", level: 88, cat: "Website" },
+  //     ],
+  //   },
+  //   {
+  //     label: "AI Tools",
+  //     list: [
+  //       { name: "AI Chatbots", level: 90, cat: "AI Integration" },
+  //       {
+  //         name: "Video / Image / Text Gen AI",
+  //         level: 88,
+  //         cat: "AI Integration",
+  //       },
+  //       { name: "Gemini", level: 88, cat: "AI Platform" },
+  //       { name: "ChatGPT 4 & 5", level: 92, cat: "AI Platform" },
+  //       { name: "Runway AI", level: 75, cat: "Generative AI" },
+  //       { name: "Vercel", level: 88, cat: "Cloud Platform" },
+  //     ],
+  //   },
+  //   {
+  //     label: "APIs & Integrations",
+  //     list: [
+  //       { name: "REST / Axios / Fetch APIs", level: 92, cat: "API" },
+  //       { name: "Firebase / Google Console", level: 85, cat: "Integration" },
+  //       { name: "Stripe / Razorpay", level: 85, cat: "Payment Gateway" },
+  //       { name: "IoT / Game", level: 75, cat: "Integration" },
+  //       {
+  //         name: "Vonage / Persona / I18n",
+  //         level: 78,
+  //         cat: "Communication API",
+  //       },
+  //       { name: "Crypto", level: 78, cat: "Security" },
+  //       { name: "TTS / STT / AWS Audio", level: 75, cat: "Cloud Service" },
+  //       { name: "Offline Mode", level: 85, cat: "App Feature" },
+  //     ],
+  //   },
+  //   {
+  //     label: "State Management",
+  //     list: [
+  //       {
+  //         name: "Redux ( Toolkit / Saga / Persist )",
+  //         level: 90,
+  //         cat: "State Management",
+  //       },
+  //       { name: "Cache Storage", level: 85, cat: "Middleware" },
+  //       { name: "Context API", level: 90, cat: "State Management" },
+  //       { name: "Zustand", level: 82, cat: "State Management" },
+  //     ],
+  //   },
+  //   {
+  //     label: "UI/UX & Styling",
+  //     list: [
+  //       { name: "Figma / Adobe Design", level: 85, cat: "Design" },
+  //       {
+  //         name: "Material UI / Bootstrap / Tailwind CSS",
+  //         level: 92,
+  //         cat: "UI Library",
+  //       },
+  //       { name: "Stylesheet / CSS Modules", level: 88, cat: "Styling" },
+  //       { name: "Responsive Design", level: 95, cat: "UI/UX" },
+  //       { name: "Dark / Light Mode", level: 92, cat: "Theme System" },
+  //       { name: "Lottie / Reanimated", level: 85, cat: "Animation" },
+  //     ],
+  //   },
+  //   {
+  //     label: "Cross Platform",
+  //     list: [
+  //       { name: "Android", level: 92, cat: "Platform" },
+  //       { name: "iOS", level: 90, cat: "Platform" },
+  //       { name: "MacOS", level: 75, cat: "Platform" },
+  //     ],
+  //   },
+  //   {
+  //     label: "Testing & Debugging",
+  //     list: [
+  //       { name: "Jest / React Testing Library", level: 82, cat: "Testing" },
+  //       { name: "Chrome / React DevTools", level: 92, cat: "Debugging" },
+  //       { name: "Postman / Swagger", level: 92, cat: "API Testing" },
+  //       { name: "Sentry", level: 78, cat: "Monitoring" },
+  //     ],
+  //   },
+  //   {
+  //     label: "Tools & Workflow",
+  //     list: [
+  //       { name: "GitHub / GitLab", level: 92, cat: "Version Control" },
+  //       {
+  //         name: "Jira / Trello / ClickUp",
+  //         level: 85,
+  //         cat: "Project Management",
+  //       },
+  //       { name: "Agile / Scrum", level: 85, cat: "Workflow" },
+  //       { name: "Basecamp", level: 78, cat: "Project Management" },
+  //     ],
+  //   },
+  // ],
   skills: [
     {
-      name: "React Js / Next Js / Angular Js / Vue Js",
-      level: 95,
-      cat: "Framework",
+      name: "Leadership / Project Handle / Client Communication",
+      cat: "Management",
+      level: 99,
     },
-    { name: "React Native", level: 95, cat: "Framework" },
-    { name: "Node Js / Express Js", level: 95, cat: "Framework" },
-    { name: "PHP / Laravel", level: 80, cat: "Language" },
-    { name: "Python", level: 80, cat: "Language" },
-    { name: "Java", level: 80, cat: "Language" },
-    { name: "Rest / GraphQL / Python / Java", level: 80, cat: "API" },
     {
-      name: "GeoLocation / Device Tracking / Google Satelite",
-      level: 80,
-      cat: "API",
+      name: "Agile Method / Scrum / JIRA / ClickUp / Trello",
+      cat: "Workflow",
+      level: 99,
     },
-    { name: "Persona", level: 80, cat: "Identity Verification" },
-    { name: "CryptoJS", level: 80, cat: "Cryptography" },
-    { name: "Vonage / Web Socket", level: 80, cat: "Communication" },
     {
-      name: "ChatGPT / Gemini / Runway / Vercel",
-      level: 80,
-      cat: "AI Integration",
+      name: "GitHub / GitLab",
+      cat: "Version Control",
+      level: 99,
     },
+    {
+      name: "Android / IOS / Web Hosting / AWS",
+      cat: "Deployment",
+      level: 99,
+    },
+    { name: "HTML / CSS / JavaScript", cat: "Web Tool", level: 99 },
+    {
+      name: "React Js / React Native / Next Js / Angular Js",
+      cat: "Frontend Framework",
+      level: 99,
+    },
+    { name: "Node Js / Python / Java", cat: "Backend Framework", level: 99 },
+    { name: "MongoDB / MySQL / PHP MyAdmin", cat: "Database", level: 99 },
+    { name: "ChatGPT / Gemini / Runway AI / ", cat: "AI", level: 99 },
   ],
   projects: [
     {
@@ -170,6 +314,7 @@ export const DETAILS: {
       p_ratings: { value: 4.6, total: 5 },
       p_clientSatisfaction: 96,
       p_teamMember: 3,
+      p_year: { start: 2025, end: 2026 },
     },
     {
       p_name: "Smart Layer Count",
@@ -178,22 +323,24 @@ export const DETAILS: {
       p_technologies: ["React Native", "Python"],
       p_client: "Confidential",
       p_organization: "Freelance",
-      p_type_of_work: "Desktop Admin Portal Application",
+      p_type_of_work: "Module Based Desktop Application",
       p_ratings: { value: 4.4, total: 5 },
       p_clientSatisfaction: 92,
       p_teamMember: 1,
+      p_year: { start: 2025, end: 2026 },
     },
     {
       p_name: "Atainment Calculator",
       p_description:
         "A smart and quick solution, designed to simplify student performance analysis, which provides accurate attainment insights by evaluating attendance, academic scores, behavior, and activity participation—all in one streamlined platform.",
-      p_technologies: ["React JS", "Python", "MySQL"],
+      p_technologies: ["Python", "MySQL"],
       p_client: "Global Academy of Technology",
       p_organization: "Freelance",
       p_type_of_work: "Module Based Web Application",
       p_ratings: { value: 4.7, total: 5 },
       p_clientSatisfaction: 95,
       p_teamMember: 1,
+      p_year: { start: 2021, end: 2022 },
     },
     {
       p_name: "Chom Chom",
@@ -206,6 +353,7 @@ export const DETAILS: {
       p_ratings: { value: 4.7, total: 5 },
       p_clientSatisfaction: 96,
       p_teamMember: 20,
+      p_year: { start: 2024, end: 2025 },
     },
     {
       p_name: "Greengalli",
@@ -214,10 +362,24 @@ export const DETAILS: {
       p_technologies: ["React JS", "React Native", "Node JS", "MySQL"],
       p_client: "Confidential",
       p_organization: "Webskitters Technologies Pvt. Ltd",
-      p_type_of_work: "Full Stack E-commerce Application",
+      p_type_of_work: "Frontend Development",
       p_ratings: { value: 4.6, total: 5 },
       p_clientSatisfaction: 95,
       p_teamMember: 12,
+      p_year: { start: 2024, end: 2025 },
+    },
+    {
+      p_name: "Wokka",
+      p_description:
+        "Wokka Pro is the ultimate platform for service providers looking to grow their business, connect with clients, and manage bookings seamlessly.",
+      p_technologies: ["React Native", "Node JS", "MongoDB"],
+      p_client: "Confidential",
+      p_organization: "Webskitters Technologies Pvt. Ltd",
+      p_type_of_work: "Frontend Development",
+      p_ratings: { value: 4.6, total: 5 },
+      p_clientSatisfaction: 95,
+      p_teamMember: 12,
+      p_year: { start: 2024, end: 2025 },
     },
     {
       p_name: "YIMBY",
@@ -230,6 +392,7 @@ export const DETAILS: {
       p_ratings: { value: 4.2, total: 5 },
       p_clientSatisfaction: 95,
       p_teamMember: 5,
+      p_year: { start: 2022, end: 2023 },
     },
     {
       p_name: "Dynafios",
@@ -242,11 +405,12 @@ export const DETAILS: {
       p_ratings: { value: 4.3, total: 5 },
       p_clientSatisfaction: 96,
       p_teamMember: 4,
+      p_year: { start: 2022, end: 2023 },
     },
   ],
   experience: [
     {
-      role: "Software Engineer",
+      role: "Senior Software Engineer",
       company: "Freelance / Self Employed",
       period: "Nov 2025 to Present",
       desc: "Delivered high-quality web & mobile applications for multiple clients, focusing on performance, scalability, and user experience. Built reusable components and optimized applications to improve load times and overall efficiency.",

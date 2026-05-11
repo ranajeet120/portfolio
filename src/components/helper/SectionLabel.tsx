@@ -1,6 +1,22 @@
-import { Typography, Divider, Box } from "@mui/material";
+import {
+  Typography,
+  Divider,
+  Box,
+  type Theme,
+  type SxProps,
+} from "@mui/material";
 
-function SectionLabel({ label, primary }: { label: string; primary: string }) {
+function SectionLabel({
+  label,
+  primary,
+  style,
+  enableTab,
+}: {
+  label: string;
+  primary: string;
+  style?: SxProps<Theme> | undefined;
+  enableTab?: boolean;
+}) {
   return (
     <Box
       sx={{
@@ -8,8 +24,17 @@ function SectionLabel({ label, primary }: { label: string; primary: string }) {
         alignItems: "center",
         gap: 2,
         mb: 5,
+        ...style,
       }}
     >
+      {enableTab ? (
+        <Divider
+          sx={{
+            width: 50,
+            borderColor: `${primary}28`,
+          }}
+        />
+      ) : null}
       <Typography
         variant="caption"
         sx={{

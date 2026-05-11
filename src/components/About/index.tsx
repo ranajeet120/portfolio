@@ -1,20 +1,7 @@
-// /* eslint-disable react-hooks/exhaustive-deps */
-// import { useState, useEffect } from "react";
 import { Typography, Box, IconButton } from "@mui/material";
 import { DETAILS } from "../../Typography";
 
 function About({ primary }: { primary: string; secondary: string }) {
-  // const [typed, setTyped] = useState("");
-  // const full = DETAILS.about.typed;
-  // useEffect(() => {
-  //   let i = 0;
-  //   const t = setInterval(() => {
-  //     setTyped(full.slice(0, ++i));
-  //     if (i >= full.length) clearInterval(t);
-  //   }, 75);
-  //   return () => clearInterval(t);
-  // }, []);
-
   return (
     <Box
       component="section"
@@ -74,29 +61,6 @@ function About({ primary }: { primary: string; secondary: string }) {
           {DETAILS.about.name}
         </Typography>
 
-        {/* <Typography
-          sx={{
-            fontSize: { xs: "1.3rem", md: "1.9rem" },
-            color: "text.secondary",
-            fontWeight: 300,
-            mb: 3,
-            minHeight: 40,
-          }}
-        >
-          {typed}
-          <Box
-            component="span"
-            sx={{
-              display: "inline-block",
-              width: 2,
-              height: "0.9em",
-              bgcolor: primary,
-              ml: 0.5,
-              verticalAlign: "middle",
-              animation: "blnk 1s step-end infinite",
-            }}
-          />
-        </Typography> */}
         <Typography
           sx={{
             color: "text.secondary",
@@ -137,7 +101,7 @@ function About({ primary }: { primary: string; secondary: string }) {
                   textTransform: "uppercase",
                 }}
               >
-                {info.lebel}
+                {info.label}
               </Typography>
             </Box>
           ))}

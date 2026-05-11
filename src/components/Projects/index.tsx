@@ -11,15 +11,17 @@ function Projects({ primary, secondary, subTitle, title }: comptype) {
       <SectionLabel label={title} primary={primary} />
       <SectionTitle label={subTitle} />
       <Grid container spacing={2.5}>
-        {DETAILS.projects.map((p, i) => (
-          <ProjectCard
-            key={i}
-            project={p}
-            primary={primary}
-            index={i}
-            secondary={secondary}
-          />
-        ))}
+        {DETAILS.projects
+          .sort((a, b) => Number(b.p_year.start) - Number(a.p_year.start))
+          .map((p, i) => (
+            <ProjectCard
+              key={i}
+              project={p}
+              primary={primary}
+              index={i}
+              secondary={secondary}
+            />
+          ))}
       </Grid>
     </Box>
   );
@@ -108,7 +110,7 @@ function ProjectCard({
                 fontSize: "0.78rem",
               }}
             >
-              {project.p_client} ( {project.p_organization})
+              {project.p_client} ( {project.p_organization} )
             </Typography>
           </Box>
           <Typography
